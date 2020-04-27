@@ -1,8 +1,10 @@
 from modules import formatFile, game, getFiles
-import os, random, urllib
+import os
+import random
+import urllib
 
 
-def startGame():        
+def startGame():
 
     listCategory = ["Animal", "Car", "Nouns"]
     chooseCategory = random.choice(listCategory)
@@ -19,10 +21,12 @@ def startGame():
             formatFile.createList("library/nounlist.txt"))
         game.playGame(chooseCategory, wordGuess)
 
+
 try:
     if urllib.request.urlopen("http://google.com"):
         try:
-            gameFiles = [os.getcwd() + "/library/animals.csv", os.getcwd() + "/library/cars.csv", os.getcwd() + "/library/nounlist.txt"]
+            gameFiles = [os.getcwd() + "/library/animals.csv", os.getcwd() +
+                         "/library/cars.csv", os.getcwd() + "/library/nounlist.txt"]
             for i in range(3):
                 open(gameFiles[i], "r")
             startGame()

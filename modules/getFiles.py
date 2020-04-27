@@ -5,11 +5,13 @@ from os import path
 import fileinput
 import csv
 
+
 def scrapFormatFiles():
     # ----------------
     # ANIMALS SCRAPING
     # ----------------
-    animalsFile = open(path.expanduser("~") + "/projects/python/dev/library/animals.csv", "w") 
+    animalsFile = open(path.expanduser(
+        "~") + "/projects/python/dev/hangman/library/animals.csv", "w")
     wildAnimals = de.loadPage(
         "https://7esl.com/wild-animals-vocabulary-english/", "h4")
     de.addToFile(wildAnimals, animalsFile)
@@ -22,14 +24,14 @@ def scrapFormatFiles():
     # ---------------------------
     # FORMAT ANIMALS FILE FOR USE
     # ---------------------------
-    formatFile.cleanChar("library/animals.csv",",", "\n")
-    formatFile.cleanChar("library/animals.csv","\xa0", "")
-
+    formatFile.cleanChar("library/animals.csv", ",", "\n")
+    formatFile.cleanChar("library/animals.csv", "\xa0", "")
 
     # ------------------------
     # CAR MANUFACTURE SCRAPING
     # ------------------------
-    carsFile = open(path.expanduser("~") + "/projects/python/dev/library/cars.csv", "w")
+    carsFile = open(path.expanduser("~") +
+                    "/projects/python/dev/hangman/library/cars.csv", "w")
     cars = de.loadPage(
         "https://www.searchify.ca/keyword-list-car-brands/", "em")
     de.addToFile(cars, carsFile)
@@ -39,10 +41,10 @@ def scrapFormatFiles():
     # ------------------------
     formatFile.cleanChar("library/cars.csv", ",", "")
 
-
     # -----------------------------------
     # NOUNS ENGLISH WORDS - DOWNLOAD FILE
     # -----------------------------------
     with open("library/nounlist.txt", "wb") as file:
-        response = requests.get("http://www.desiquintans.com/downloads/nounlist/nounlist.txt")
+        response = requests.get(
+            "http://www.desiquintans.com/downloads/nounlist/nounlist.txt")
         file.write(response.content)

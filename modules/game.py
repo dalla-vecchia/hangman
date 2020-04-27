@@ -84,7 +84,7 @@ def playGame(cat, word):
 
     wordGuess = "".join(word)
     print(f"\n{len(wordGuess)} letters - Category: {cat}\n")
-    
+
     wordGuessList = list(wordGuess)
     listOutPut = wordGuessList.copy()
     for index, character in enumerate(listOutPut):
@@ -94,14 +94,14 @@ def playGame(cat, word):
     count = 0
     charExists = False
     while count < 11:
-        
+
         print("\n")
-        if wordGuess == str("".join(listOutPut)) and count <10:
+        if wordGuess == str("".join(listOutPut)) and count < 10:
             print(f"You Win - {wordGuess}\n")
             break
 
-        usrInput = input("Enter one valid letter or '@' to exit: ")        
-            
+        usrInput = input("Enter one valid letter or '@' to exit: ")
+
         if not usrInput.isalpha():
             if usrInput == "@":
                 print("Bye, bye!!!\n")
@@ -114,12 +114,12 @@ def playGame(cat, word):
                 charExists = True
                 listOutPut[indice] = usrInput
             elif character == usrInput.capitalize():
-                print("Capital letter")
+                listOutPut[indice] = usrInput.capitalize()
         if not charExists:
             count += 1
-        
+
         charExists = False
-                       
+
         print(board[count], end="")
         for i in range(len(listOutPut)):
             print(listOutPut[i] + " ", end="")
